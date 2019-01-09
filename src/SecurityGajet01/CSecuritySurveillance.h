@@ -119,6 +119,9 @@ public:
       case EVSensorValueId::EVSensor2DistRawMm:
         value = lider2_u.newest();
         break;
+      case EVSensorValueId::EVSensorErrorCode:
+    	value = (uint32_t)get_sensor_error_code(EVSensorId::EVSensor1) << 0x24 || (uint32_t)get_sensor_error_code(EVSensorId::EVSensor2);
+        break;
       default:
         value = 0;
         break;

@@ -42,16 +42,18 @@ void CBlueToothComm::transmit(){
     get_serial()->print( "\tS2RW:" );
     get_serial()->print( _seq_surve->get_value(EVSensorValueId::EVSensor2DistRawMm) );
     get_serial()->print( "\n" );
-  	
-    _bt_serial->print( "S1LP:" );
-    _bt_serial->print( _seq_surve->get_value(EVSensorValueId::EVSensor1DistMm) );
-    _bt_serial->print( "\tS2LP:" );
-    _bt_serial->print( _seq_surve->get_value(EVSensorValueId::EVSensor2DistMm) );
-    _bt_serial->print( "\tS1RW:" );
-    _bt_serial->print( _seq_surve->get_value(EVSensorValueId::EVSensor1DistRawMm) );
-    _bt_serial->print( "\tS2RW:" );
-    _bt_serial->print( _seq_surve->get_value(EVSensorValueId::EVSensor2DistRawMm) );
-    _bt_serial->print( "\n" );
+    
+    //transfer data via bluetooth device
+    _bt_serial->write( EVSensorValueId::EVSensor1DistMm );
+    _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensor1DistMm), 4 );
+    _bt_serial->write( EVSensorValueId::EVSensor1DistRawMm );
+    _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensor1DistRawMm), 4 );
+    _bt_serial->write( EVSensorValueId::EVSensor2DistMm );
+    _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensor2DistMm), 4 );
+    _bt_serial->write( EVSensorValueId::EVSensor2DistRawMm );
+    _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensor2DistRawMm), 4 );
+    _bt_serial->write( EVSensorValueId::EVSensorErrorCode );
+    _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensorErrorCode), 4 );
   }
 }
 

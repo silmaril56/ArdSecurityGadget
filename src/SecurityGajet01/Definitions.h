@@ -76,7 +76,7 @@ enum EVSensorId
 enum EVSensorValueId
 {
   /**
-   * センサー2距離値RAW(mm)
+   * センサー準備完了
    */
   EVReady = 0,
   /**
@@ -94,7 +94,11 @@ enum EVSensorValueId
   /**
    * センサー2距離値RAW(mm)
    */
-  EVSensor2DistRawMm = 4
+  EVSensor2DistRawMm = 4,
+  /**
+   * センサーエラーコード
+   */
+  EVSensorErrorCode = 5
 };
 //=========================================================
 //  型定義
