@@ -2,7 +2,7 @@
 //  CTaskManager.cpp
 //  Implementation of the Class CTaskManager
 //  Created on:      2015/08/05 18:28:50
-//  Original author: gen
+//  Original author: JJ1JQZ
 ///////////////////////////////////////////////////////////
 
 #include "CTaskManager.h"

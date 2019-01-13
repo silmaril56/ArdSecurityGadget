@@ -2,6 +2,7 @@
 ///////////////////////////////////////////////////////////
 //  CBlueToothComm.cpp
 //  Implementation of the Class CBlueToothComm
+//    Execute in less than the 1/2 period of the gadget sensing period.
 //  Created on:      2018/09/29
 //  Original author: gen
 ///////////////////////////////////////////////////////////
@@ -44,6 +45,7 @@ void CBlueToothComm::transmit(){
     get_serial()->print( "\n" );
     
     //transfer data via bluetooth device
+    _bt_serial->write( (char *)0xFFFF, 2 );
     _bt_serial->write( EVSensorValueId::EVSensor1DistMm );
     _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensor1DistMm), 4 );
     _bt_serial->write( EVSensorValueId::EVSensor1DistRawMm );
@@ -54,6 +56,8 @@ void CBlueToothComm::transmit(){
     _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensor2DistRawMm), 4 );
     _bt_serial->write( EVSensorValueId::EVSensorErrorCode );
     _bt_serial->write( (char *)_seq_surve->get_value(EVSensorValueId::EVSensorErrorCode), 4 );
+    //_bt_serial->write( EVSensorValueId::EVReady );
+    //_bt_serial->write( (char *)0xFFFFFFFF, 4 );
   }
 }
 

@@ -2,7 +2,7 @@
 //  CBlueToothComm.h
 //  Implementation of the Class CBlueToothComm
 //  Created on:      2018/09/19
-//  Original author: gen
+//  Original author: JJ1JQZ
 ///////////////////////////////////////////////////////////
 
 #if !defined(__CBLUETOOTHCOMM_H__)

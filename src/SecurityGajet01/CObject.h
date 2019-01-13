@@ -2,7 +2,7 @@
 //  CObject.h
 //  Implementation of the Class CObject
 //  Created on:      2015/08/05 18:28:49
-//  Original author: gen
+//  Original author: JJ1JQZ
 ///////////////////////////////////////////////////////////
 
 #if !defined(__COBJECT_H__)
